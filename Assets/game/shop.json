@@ -1,0 +1,24 @@
+
+[
+    {
+        "id": "pmp",
+        "count": 50,
+        "price": ["gems", 10000],
+        "description": "Most common farmable good for beginners.",
+        "category": "farmable"
+    },
+    {
+        "id": "chandelier",
+        "count": 50,
+        "price": ["gems", 15000],
+        "description": "Best for having more gems with lower cost",
+        "category": "farmable"
+    },
+    {
+        "id": "dpmp",
+        "count": 100,
+        "price": ["gems", 30000],
+        "description": "Feeling poor? this is what you need.",
+        "category": "farmable"
+    }
+]

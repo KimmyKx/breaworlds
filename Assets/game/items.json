@@ -1,0 +1,31 @@
+{
+  "farmable": [
+    {
+      "id": "pmp",
+      "name": "Pink Metal Panel"
+    },
+    {
+      "id": "dpmp",
+      "name": "Dark Purple Metal Panel"
+    },
+    {
+      "id": "chandelier",
+      "name": "Chandelier"
+    }
+  ],
+  "seed": [
+    {
+      "id": "pmp",
+      "name": "Pink Metal Panel Seed"
+    },
+    {
+      "id": "dpmp",
+      "name": "Dark Purple Metal Panel Seed"
+    },
+    {
+      "id": "chandelier",
+      "name": "Chandelier Seed"
+    }
+  ],
+  "consumable": []
+}
