@@ -8,14 +8,14 @@ const Client = require("./Client.js");
 * @param {Discord.Message | Discord.Interaction} message
 * @param {string[]} args
 * @param {Client} client
-* @param {db} db
+* @param {Object} user
 */
 
-function RunFunction(message,args,client) {}
+function RunFunction(message, args, client, user) {}
 
 class Command {
   /**
-   * @typedef {{name: string, description: string, run: RunFunction}} CommandOptions
+   * @typedef {{name: String, description: String, alias: Array, run: RunFunction,}} CommandOptions
    * @param {CommandOptions} options
    */ 
   constructor(options){

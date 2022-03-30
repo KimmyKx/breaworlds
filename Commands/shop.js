@@ -49,6 +49,7 @@ module.exports = new Command({
                     msg.edit({ embeds: [embed], components: [] })
                 } catch(e) {}
             })
+            if(!ButtonInteraction) return
             const id = ButtonInteraction.customId
             if(id == "previous") start(--current)
             if(id == "next") start(++current)

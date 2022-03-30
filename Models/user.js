@@ -16,15 +16,15 @@ const User = mongoose.model("User", {
     }],
     level: {
         type: Number,
-        default: 0
+        default: 1
     }, 
     exp: {
         type: Number,
         default: 0
     },
-    maxEXP: {
+    maxexp: {
         type: Number,
-        default: 0
+        default: 10000
     },
     gems: {
         type: Number,
@@ -37,6 +37,10 @@ const User = mongoose.model("User", {
     tl: {
         type: Number,
         default: 0
+    },
+    power: {
+        type: Number,
+        default: 10
     }
 })
 

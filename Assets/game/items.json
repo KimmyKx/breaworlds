@@ -2,29 +2,47 @@
   "farmable": [
     {
       "id": "pmp",
-      "name": "Pink Metal Panel"
+      "name": "Pink Metal Panel",
+      "logo": "<:PMP:891053307353772112>",
+      "drop": {
+        "gems": [190, 210],
+        "exp": [10,20]
+      }
     },
     {
       "id": "dpmp",
-      "name": "Dark Purple Metal Panel"
+      "name": "Dark Purple Metal Panel",
+      "logo": "<:DPMP:891053501466148924>",
+      "drop": {
+        "gems": [290, 320],
+        "exp": [14,29]
+      }
     },
     {
       "id": "chandelier",
-      "name": "Chandelier"
+      "name": "Chandelier",
+      "logo": "<:Chandelier:891053659171999754>",
+      "drop": {
+        "gems": [290, 305],
+        "exp": [12,24]
+      }
     }
   ],
   "seed": [
     {
       "id": "pmp",
-      "name": "Pink Metal Panel Seed"
+      "name": "Pink Metal Panel Seed",
+      "logo": "<:PMPSeed:891219112544567328>"
     },
     {
       "id": "dpmp",
-      "name": "Dark Purple Metal Panel Seed"
+      "name": "Dark Purple Metal Panel Seed",
+      "logo": "<:DPMPSeed:891219145327251457>"
     },
     {
       "id": "chandelier",
-      "name": "Chandelier Seed"
+      "name": "Chandelier Seed",
+      "logo": "<:ChandelierSeed:891219170270789652>"
     }
   ],
   "consumable": []
