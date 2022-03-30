@@ -30,6 +30,7 @@ module.exports = new Command({
         let gems = 0
         let exp = 0
         const item = { ..._item, ..._item.id.getFieldById("farmable") }
+        const seedIndex = user.seed.findIndex(seed => seed.id == item.id)
         session.push(message.author.id)
         await start()
         async function start() {
@@ -55,7 +56,12 @@ module.exports = new Command({
             const id = ButtonInteraction.customId
             if(id == "break") {
                 hit++
-                drop(counts)
+                if(user.seed[seedIndex].count >= 500) {
+                    embed.setDescription(`Your inventory is full.`)
+                    return done()
+                }
+                const isDone = drop(counts)
+                if(isDone) return
                 const res = user.farmable[itemIndex].count -= user.power
                 if(res <= 0) {
                     user.farmable[itemIndex].count = 0
@@ -73,11 +79,17 @@ module.exports = new Command({
                 for(let i = 0; i < blocks; i++) {
                     const g = Math.floor(Math.random() * (item.drop.gems[1] - item.drop.gems[0] + 1)) + item.drop.gems[0]
                     const e = Math.floor(Math.random() * (item.drop.exp[1] - item.drop.exp[0] + 1)) + item.drop.exp[0]
+                    const s = Math.floor(Math.random() * 3) > 0 ? 0 : 1
+                    if(seed + s + user.seed[seedIndex].count > 500) {
+                        console.log("full")
+                        embed.setDescription(`Your inventory is full.`)
+                        return done()
+                    }
                     gems += g
                     exp += e
                     user.gems += g
                     user.exp += e
-                    seed += Math.floor(Math.random() * 3) > 0 ? 0 : 1 // 1/3 chance
+                    seed += s // 1/3 chance
                     block += Math.floor(Math.random() * 3) > 0 ? 0 : 1 // 1/3 chance
                 }
             }
@@ -94,6 +106,7 @@ module.exports = new Command({
                 if(hit == 0) return
                 if(user.exp >= user.maxexp) levelUp()
                 save()
+                return true
             }
 
             function levelUp() {
@@ -114,7 +127,7 @@ module.exports = new Command({
             }
 
             async function save() {
-                const seedIndex = user.seed.findIndex(seed => seed.id == item.id)
+                
                 const blockIndex = user.farmable.findIndex(farmable => farmable.id == item.id)
                 if(seedIndex > -1) {
                     user.seed[seedIndex].count += seed
