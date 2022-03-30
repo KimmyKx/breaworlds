@@ -20,5 +20,12 @@
         "price": ["gems", 30000],
         "description": "Feeling poor? this is what you need.",
         "category": "farmable"
+    },
+    {
+        "id": "pickaxe",
+        "count": 1,
+        "price": ["gems", 100000],
+        "description": "Increase your break power by 5! (upgradable)",
+        "category": "equipment"
     }
 ]

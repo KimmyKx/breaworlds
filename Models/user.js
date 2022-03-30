@@ -10,9 +10,11 @@ const User = mongoose.model("User", {
         id: String,
         count: Number
     }],
-    consumable: [{
+    consumable: [],
+    equipment: [{
         id: String,
-        count: Number
+        count: Number,
+        level: Number
     }],
     plant: [{
         id: String,
@@ -46,10 +48,6 @@ const User = mongoose.model("User", {
     tl: {
         type: Number,
         default: 0
-    },
-    power: {
-        type: Number,
-        default: 10
     }
 })
 

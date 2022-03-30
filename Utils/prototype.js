@@ -22,6 +22,11 @@ Object.prototype.joins = function() {
         p = { ...p, ...info }
         return p
     })
+    this.power = (10 + (1 * (this.level - 1))) // 10 is a default value
+    const pickaxe = this.equipment.find(e => e.id == "pickaxe") 
+    if(pickaxe) {
+        this.power += (5 + (pickaxe.level - 1))
+    }
     return this
 }
 

@@ -10,7 +10,7 @@ mongoose.connect(process.env.mongo, {
 })
 
 
-// User.updateOne({ id: "529734781970284544" }, { $push: { plant: null }})
+// User.updateOne({ id: "529734781970284544" }, { $set: { equipment: [] }})
 // .then(res => {
 //   console.log(res)
 // })

@@ -5,7 +5,8 @@ const danger = require("../Buttons/danger")
 const success = require("../Buttons/success")
 const User = require("../Models/user")
 const items = require("../Assets/game/items")
-const session = []
+const config = require("../config")
+const { levelUp } = require("../Utils/functions")
 
 module.exports = new Command({
     name: "break",
@@ -15,7 +16,7 @@ module.exports = new Command({
         if(!args[1]) return message.reply(`Specify a farmable id, \`${prefix}break (id)\``)
         const itemIndex = user.farmable.findIndex(f => f.id == args[1].toLowerCase())
         if(itemIndex < 0) return message.reply("You don't have this item silly.")
-        if(session.includes(message.author.id)) return
+        if(config.session.includes(message.author.id)) return
         const _item = user.farmable[itemIndex]
 
         const filter = i => {
@@ -31,7 +32,7 @@ module.exports = new Command({
         let exp = 0
         const item = { ..._item, ..._item.id.getFieldById("farmable") }
         const seedIndex = user.seed.findIndex(seed => seed.id == item.id)
-        session.push(message.author.id)
+        config.session.push(message.author.id)
         await start()
         async function start() {
             const counts = user.farmable[itemIndex].count
@@ -56,7 +57,7 @@ module.exports = new Command({
             const id = ButtonInteraction.customId
             if(id == "break") {
                 hit++
-                if(user.seed[seedIndex].count >= 500) {
+                if(user.seed[seedIndex]?.count >= 500) {
                     embed.setDescription(`Your inventory is full.`)
                     return done()
                 }
@@ -80,8 +81,7 @@ module.exports = new Command({
                     const g = Math.floor(Math.random() * (item.drop.gems[1] - item.drop.gems[0] + 1)) + item.drop.gems[0]
                     const e = Math.floor(Math.random() * (item.drop.exp[1] - item.drop.exp[0] + 1)) + item.drop.exp[0]
                     const s = Math.floor(Math.random() * 3) > 0 ? 0 : 1
-                    if(seed + s + user.seed[seedIndex].count > 500) {
-                        console.log("full")
+                    if(seed + s + user.seed[seedIndex]?.count > 500) {
                         embed.setDescription(`Your inventory is full.`)
                         return done()
                     }
@@ -95,7 +95,7 @@ module.exports = new Command({
             }
 
             function done() {
-                session.splice(session.indexOf(message.author.id), 1)
+                config.session.splice(config.session.indexOf(message.author.id), 1)
                 try {
                     if(hit == 0) 
                         embed.setDescription("You didn't break anything in time..")
@@ -104,26 +104,9 @@ module.exports = new Command({
                     msg.edit({ content: `${message.author.username} was tired this session is done.`, embeds: [embed], components: [] })
                 } catch(err) {console.log(err)}
                 if(hit == 0) return
-                if(user.exp >= user.maxexp) levelUp()
+                if(user.exp >= user.maxexp) levelUp(user, message)
                 save()
                 return true
-            }
-
-            function levelUp() {
-                const { level } = user
-                let up = 0
-                do {
-                    user.level++
-                    up++
-                    user.exp -= user.maxexp
-                    user.power += 1
-                    user.maxexp += (user.level * 1100 + 1000)
-                } while(user.exp >= user.maxexp)
-                const em = new MessageEmbed()
-                .setColor("GREEN")
-                .setDescription(`**Level up!** ${level} > ${user.level} \nBreak power + ${1 * up}`)
-                .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL() })
-                message.channel.send({ embeds: [em] })
             }
 
             async function save() {

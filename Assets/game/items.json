@@ -48,7 +48,12 @@
       "growth": 1200000
     }
   ],
-  "consumable": [
-    
+  "consumable": [],
+  "equipment": [
+    {
+      "id": "pickaxe",
+      "name": "Wooden Pickaxe",
+      "logo": "⛏"
+    }
   ]
 }

@@ -7,11 +7,12 @@ module.exports = new Command({
     alias: ["inv", "inven"],
     async run(message, args, client, user) {
         const userM =  message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.member.user
-        if(userM.id != message.author.id) userM = (await User.findOne({ id: userM.id }).lean()).joins()
+        if(userM.id != message.author.id) userM = (await User.findOne({ id: userM.id }).lean())?.joins()
         const views = {
             Farmables: user.farmable.map(f => `${f.logo} **${f.name}** (${f.count})\nID: \`${f.id}\``).join("\n"),
             Seeds: user.seed.map(f => `${f.logo} **${f.name}** (${f.count})\nID: \`${f.id}\``).join("\n"),
-            Consumables: user.consumable.map(f => `${f.logo} **${f.name}** (${f.count})\nID: \`${f.id}\``).join("\n")
+            Consumables: user.consumable.map(f => `${f.logo} **${f.name}** (${f.count})\nID: \`${f.id}\``).join("\n"),
+            Equipments: user.equipment.map(f => `${f.logo} **${f.name}** (${f.count})\nID: \`${f.id}\``).join("\n")
         }
         let msg
         const filter = i => {
@@ -40,8 +41,13 @@ module.exports = new Command({
                 },
                 {
                     label: 'Consumable',
-                    description: 'Sorts inventory view by seeds',
+                    description: 'Sorts inventory view by consumables',
                     value: 'Consumables'
+                },
+                {
+                    label: 'Equipment',
+                    description: 'Sorts inventory view by equipments',
+                    value: 'Equipments'
                 }
             ])
         )

@@ -15,7 +15,6 @@ module.exports = new Command({
         while(user.plant.length < user.maxplant) {
             user.plant.push(null)
         }
-        console.log(user.plant)
         const filter = i => {
             i.deferUpdate()
             return i.user.id == message.author.id
