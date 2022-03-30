@@ -5,7 +5,7 @@ const ignore = ["start", "help"]
 
 module.exports = new Event("messageCreate", async (client, message) => {
 
-    if(!message.content.startsWith(config.prefix) || config.maintenance) return
+    if(!message.content.startsWith(config.prefix) || (config.maintenance && !config.admins.includes(message.author.id))) return
     const args = message.content.substring(config.prefix.length).split(/ +/)
     const command = client.commands.find(cmd => cmd.name == args[0].toLowerCase() || cmd.alias.includes(args[0].toLowerCase()))
 
@@ -22,5 +22,6 @@ module.exports = new Event("messageCreate", async (client, message) => {
         .setFooter({ text: `Check ${config.prefix}help for guide.` })
         return message.channel.send({ embeds: [embed] })
     }
+    console.log(user)
     command.run(message, args, client, user.joins())
 })

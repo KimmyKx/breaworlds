@@ -1,4 +1,5 @@
 {
   "prefix": ";",
-  "botName": "Breaworlds Economy"
+  "maintenance": true,
+  "admins": ["529734781970284544"]
 }

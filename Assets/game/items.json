@@ -32,17 +32,20 @@
     {
       "id": "pmp",
       "name": "Pink Metal Panel Seed",
-      "logo": "<:PMPSeed:891219112544567328>"
-    },
-    {
-      "id": "dpmp",
-      "name": "Dark Purple Metal Panel Seed",
-      "logo": "<:DPMPSeed:891219145327251457>"
+      "logo": "<:PMPSeed:891219112544567328>",
+      "growth": 600000
     },
     {
       "id": "chandelier",
       "name": "Chandelier Seed",
-      "logo": "<:ChandelierSeed:891219170270789652>"
+      "logo": "<:ChandelierSeed:891219170270789652>",
+      "growth": 900000
+    },
+    {
+      "id": "dpmp",
+      "name": "Dark Purple Metal Panel Seed",
+      "logo": "<:DPMPSeed:891219145327251457>",
+      "growth": 1200000
     }
   ],
   "consumable": []

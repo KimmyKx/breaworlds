@@ -14,6 +14,15 @@ const User = mongoose.model("User", {
         id: String,
         count: Number
     }],
+    plant: [{
+        id: String,
+        count: Number,
+        time: Number
+    }],
+    maxplant: {
+        type: Number,
+        default: 5
+    },
     level: {
         type: Number,
         default: 1

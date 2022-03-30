@@ -15,6 +15,13 @@ Object.prototype.joins = function() {
             return item
         })
     })
+    this.plant = this.plant.map(p => {
+        if(!p) return p
+        const info = items.seed.find(s => s.id == p.id)
+        if(!info) return p
+        p = { ...p, ...info }
+        return p
+    })
     return this
 }
 

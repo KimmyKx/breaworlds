@@ -61,7 +61,7 @@ module.exports = new Command({
             ctx.fill()
         }
         drawName(`${user.user.tag}`, 250, canvas.height / 3 - 20, 30)
-        drawName(`${"No title"}`, 250, canvas.height / 3 + 5, 20)
+        drawName(`• ${"No title"}`, 250, canvas.height / 3 + 5, 20)
         drawName(`Level: ${userM.level}`, 250, canvas.height / 3 + 25, 20)
         drawName(`Exp: ${userM.exp.toLocaleString()}/${userM.maxexp.toLocaleString()}`, 250, canvas.height / 3 + 45, 20)
         drawName(`${userM.wl}`, 300, 185, 30) // wl

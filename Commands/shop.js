@@ -18,7 +18,7 @@ module.exports = new Command({
         start(1)
         async function start(num) {
             let view = result
-            const max = 2
+            const max = 3
             const page = Math.ceil(view.length / max)
             let current = num
             const row = new MessageActionRow().addComponents(primary("<", "previous", current <= 1), primary(">", "next", current >= page))
