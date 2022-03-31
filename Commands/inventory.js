@@ -1,4 +1,4 @@
-const { MessageEmbed, User, MessageActionRow, MessageSelectMenu } = require("discord.js")
+const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require("discord.js")
 const Command = require("../Structures/Command")
 const User = require("../Models/user")
 
