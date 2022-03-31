@@ -1,5 +1,6 @@
 const { MessageEmbed, User, MessageActionRow, MessageSelectMenu } = require("discord.js")
 const Command = require("../Structures/Command")
+const User = require("../Models/user")
 
 module.exports = new Command({
     name: "inventory", 
