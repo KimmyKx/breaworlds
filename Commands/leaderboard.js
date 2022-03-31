@@ -79,5 +79,6 @@ module.exports = new Command({
     drawLine()
     const attachment = new MessageAttachment(canvas.toBuffer(), "Leaderboard.png")
     message.channel.send({ files: [attachment] })
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     }
 })
