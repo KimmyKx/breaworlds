@@ -17,7 +17,7 @@ module.exports = new Command({
         const m = await User.findOne({ id: member.id }).lean()
         if(!m) return message.reply("This user has not been registered yet")
         m.gems += amount
-        await User.updateOne({ id: member.id }, m)
         message.reply("Successfully added "+ "gems".getLogo() + amount.toLocaleString() + " gems to " + member.user.tag)
+        await User.updateOne({ id: member.id }, m)
     }
 })
