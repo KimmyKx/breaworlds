@@ -30,7 +30,7 @@ module.exports = new Command({
             .setAuthor({ name: `Page ${current}/${page}` })
             .setTitle("Breaworlds shop")
             .setDescription(`Your wallet: \n${"gems".getLogo()} ${user.gems.toLocaleString()} \n${"wl".getLogo()} ${user.wl.toLocaleString()} \n${"tl".getLogo()} ${user.tl.toLocaleString()}`)
-            .addField("Items", `${view.join("\n")}`)
+            .addField("Items", `${view.join("\n")}_ _`)
             .setThumbnail(client.user.displayAvatarURL())
             .setColor("BLUE")
             .setFooter({ text: `${prefix}buy (item id) (amount) to buy`, iconURL: message.author.displayAvatarURL() })

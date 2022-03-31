@@ -14,10 +14,10 @@ module.exports = new Command({
         if(!member) return message.channel.send("Please mention a valid member of this server")
         const amount = parseInt(args[1])
         if(isNaN(amount)) return message.channel.send("Please provide a valid number")
-        if(amount < 1) return message.channel.send("Please provide a number greater than 0")
         const m = await User.findOne({ id: member.id }).lean()
         if(!m) return message.reply("This user has not been registered yet")
         m.gems += amount
         await User.updateOne({ id: member.id }, m)
+        message.reply("Successfully added "+ "gems".getLogo() + amount.toLocaleString() + " gems to " + member.user.tag)
     }
 })

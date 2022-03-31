@@ -17,7 +17,10 @@ module.exports = new Command({
         let amount = parseInt(args[2])
         if(!amount) amount = 1
         const [currency, price] = item.price
-        if(user[currency] < price * amount) return message.reply(`You need ${currency.getLogo()} ${(price * amount - user[currency]).toLocaleString()} more to purchase this.`)
+        try {
+            if(user[currency] < price * amount) return message.reply(`You need ${currency.getLogo()} ${(price * amount - user[currency]).toLocaleString()} more to purchase this.`)
+
+        } catch(e) {}
         const index = user[item.category]?.findIndex(it => it.id == item.id)
         
         // handling
