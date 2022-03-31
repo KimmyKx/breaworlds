@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
+const { Schema } = mongoose
 
-const User = mongoose.model("User", {
+const schema = new Schema({
     id: String,
     farmable: [{
         id: String,
@@ -48,7 +49,24 @@ const User = mongoose.model("User", {
     tl: {
         type: Number,
         default: 0
+    },
+    fish: {
+        type: Number,
+        default: 0
+    },
+    networth: {
+        type: Number,
+        get: net
     }
 })
+
+function net() {
+    return Math.floor(this.gems / 2 + (this.wl * 1300) + (this.tl * 140000))
+}
+
+schema.set('toObject', { getters: true });
+schema.set('toJSON', { getters: true });
+
+const User = mongoose.model("User", schema)
 
 module.exports = User

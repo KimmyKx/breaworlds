@@ -10,6 +10,7 @@ module.exports = new Command({
     name: "harvest",
     description: "",
     alias: [],
+    group: "Game",
     async run(message, args, client, user) {
         if(config.session.includes(message.author.id)) return message.reply("You are currently busy")
         if(!args[1]) return message.reply(`Specify plaform number, \`${config.prefix}harvest (platform number)\``)

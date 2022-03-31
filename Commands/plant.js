@@ -6,6 +6,7 @@ module.exports = new Command({
     name: "plant", 
     description: "",
     alias: [],
+    group: "Game",
     async run(message, args, client, user) {
         if(!args[1] || !args[2]) return message.reply(`Specify an item id and count, \`${prefix}plant (seed id) (count)\``)
         if(user.plant.length >= user.maxplant && user.plant.every(p => p)) return message.reply(`Your farm is currently full check them on \`${prefix}farms\``)

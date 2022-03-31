@@ -5,6 +5,7 @@ module.exports = new Command({
     name: "inventory", 
     description: "",
     alias: ["inv", "inven"],
+    group: "Views",
     async run(message, args, client, user) {
         const userM =  message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.member.user
         if(userM.id != message.author.id) userM = (await User.findOne({ id: userM.id }).lean())?.joins()

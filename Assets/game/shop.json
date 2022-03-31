@@ -22,10 +22,33 @@
         "category": "farmable"
     },
     {
+        "id": "wl",
+        "name": "World Lock",
+        "count": 1,
+        "price": ["gems", 2500],
+        "description": "Get more networth!",
+        "category": "currency"
+    },
+    {
+        "id": "tl",
+        "name": "Titanium Lock",
+        "count": 1,
+        "price": ["wl", 100],
+        "description": "Most valuable item so shiny, show them off!",
+        "category": "currency"
+    },
+    {
         "id": "pickaxe",
         "count": 1,
         "price": ["gems", 100000],
         "description": "Increase your break power by 5! (upgradable)",
+        "category": "equipment"
+    },
+    {
+        "id": "rod",
+        "count": 1,
+        "price": ["wl", 50],
+        "description": "Tired of farming? let's go for fishing! (upgradable)",
         "category": "equipment"
     }
 ]

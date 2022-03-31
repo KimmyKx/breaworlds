@@ -36,7 +36,7 @@ Object.prototype.joins = function() {
  * @returns {Object}
  */
 String.prototype.getFieldById = function(category) {
-    return items[category].find(i => i.id == this)
+    return items[category]?.find(i => i.id == this)
 }
 
 String.prototype.getLogo = function() {

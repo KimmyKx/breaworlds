@@ -8,6 +8,7 @@ module.exports = new Command({
     name: "farms",
     description: "",
     alias: ["farm"],
+    group: "Views",
     async run(message, args, client, user) {
         const mentioned = message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.member;
         if(mentioned.user.id != message.author.id) user = await User.findOne({ id: mentioned.user.id })

@@ -12,6 +12,7 @@ module.exports = new Command({
     name: "break",
     description: "",
     alias: [],
+    group: "Game",
     async run(message, args, client, user) {
         if(!args[1]) return message.reply(`Specify a farmable id, \`${prefix}break (id)\``)
         const itemIndex = user.farmable.findIndex(f => f.id == args[1].toLowerCase())

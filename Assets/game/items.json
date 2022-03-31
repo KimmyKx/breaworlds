@@ -54,6 +54,11 @@
       "id": "pickaxe",
       "name": "Wooden Pickaxe",
       "logo": "⛏"
+    },
+    {
+      "id": "rod",
+      "name": "Wooden Fishing Rod",
+      "logo": "🎣"
     }
   ]
 }

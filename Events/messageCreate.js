@@ -1,6 +1,7 @@
 const Event = require("../Structures/Event")
 const config = require("../config.json")
 const User = require("../Models/user")
+const { MessageEmbed } = require("discord.js")
 const ignore = ["start", "help"]
 
 module.exports = new Event("messageCreate", async (client, message) => {
@@ -23,6 +24,5 @@ module.exports = new Event("messageCreate", async (client, message) => {
         .setFooter({ text: `Check ${config.prefix}help for guide.` })
         return message.channel.send({ embeds: [embed] })
     }
-    console.log(user.joins())
-    command.run(message, args, client, user.joins())
+    command.run(message, args, client, user?.joins())
 })

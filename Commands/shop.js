@@ -8,12 +8,13 @@ module.exports = new Command({
     name: "shop",
     description: "",
     alias: [],
+    group: "Economy",
     async run(message, args, client, user) {
         const filter = i => {
             i.deferUpdate()
             return i.user.id == message.author.id
         }
-        const result = shop.map((item, i) => `x${item.count.toLocaleString()} ${item.id.getFieldById(item.category).name}** — ${item.price[0].getLogo()} ${item.price[1].toLocaleString()} \n${item.description} \nID: \`${item.id}\`\n`)
+        const result = shop.map((item, i) => `**x${item.count.toLocaleString()} ${item.id.getFieldById(item.category)?.name || item.name || ""}** — ${item.price[0].getLogo()} ${item.price[1].toLocaleString()} \n${item.description} \nID: \`${item.id}\`\n`)
         let msg
         start(1)
         async function start(num) {
@@ -29,7 +30,7 @@ module.exports = new Command({
             .setAuthor({ name: `Page ${current}/${page}` })
             .setTitle("Breaworlds shop")
             .setDescription(`Your wallet: \n${"gems".getLogo()} ${user.gems.toLocaleString()} \n${"wl".getLogo()} ${user.wl.toLocaleString()} \n${"tl".getLogo()} ${user.tl.toLocaleString()}`)
-            .addField("Items", `${view.map((v, i) => `**${i + 1}. ${v}`).join("\n")}`)
+            .addField("Items", `${view.join("\n")}`)
             .setThumbnail(client.user.displayAvatarURL())
             .setColor("BLUE")
             .setFooter({ text: `${prefix}buy (item id) (amount) to buy`, iconURL: message.author.displayAvatarURL() })

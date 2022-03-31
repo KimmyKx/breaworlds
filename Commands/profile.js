@@ -22,9 +22,10 @@ module.exports = new Command({
     name: "profile",
     description: "",
     alias: ["p"],
+    group: "Views",
     async run(message, args, client, userM) {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.member;
-        if(user.user.id != message.author.id) userM = await User.findOne({ id: user.user.id })
+        if(user.user.id != message.author.id) userM = await User.findOne({ id: user.user.id })?.lean()
         if(!userM) return message.reply("This user don't have an account yet, ask them to join you!")
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
         
