@@ -64,7 +64,7 @@ module.exports = new Command({
       })
     })
     let userRank = users.findIndex(u => u.id == message.author.id)
-    await drawText(`Your rank: ${userRank + 1}. ${message.author.tag} - ${users[userRank].networth.toLocaleString()}`, 40, 500, 25)
+    await drawText(userRank < 0 ? "Your rank: not ranked." : `Your rank: ${userRank + 1}. ${message.author.tag} - ${users[userRank].networth.toLocaleString()}`, 40, 500, 25)
       
     
     function drawLine(){
