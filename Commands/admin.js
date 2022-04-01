@@ -12,7 +12,7 @@ module.exports = new Command({
 		const users = await Promise.all(admins.map(admin => client.users.fetch(admin)))
 		const embed = new MessageEmbed()
 		.setColor("GREEN")
-		.addField("Users", `${users.map(u => `• ${u}`).join("\n")}`)
+		.addField("Users", `${users.map(u => `• ${u.tag}`).join("\n")}`)
 		.addField("Commands", `\`${Array.from(client.commands).filter(c => c[1].group == "Admin").map(c => c[0]).join("`, `")}\``)
 		.setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL() })
 		message.channel.send({ embeds: [embed] })
