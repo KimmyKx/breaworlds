@@ -9,8 +9,7 @@ module.exports = new Command({
     group: "Admin",
     async run(message, args, client, user) {
         if(!admins.includes(message.author.id)) return
-		const users = []
-		admins.forEach(admin => users.push(client.users.cache.get(admin)?.tag))
+		const users = await Promise.all(admins.map(admin => client.users.fetch(admin)))
 		const embed = new MessageEmbed()
 		.setColor("GREEN")
 		.addField("Users", `${users.map(u => `• ${u}`).join("\n")}`)
