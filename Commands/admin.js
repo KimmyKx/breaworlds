@@ -1,5 +1,6 @@
 const Command = require("../Structures/Command")
 const { admins } = require("../config")
+const { MessageEmbed } = require("discord.js")
 
 module.exports = new Command({
     name: "admin",
