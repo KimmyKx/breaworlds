@@ -28,7 +28,7 @@ module.exports = new Command({
 
         if(user.user.id != message.author.id) {
             userM = await User.findOne({ id: user.user.id })?.lean()
-            userM.joins()
+            userM = userM?.joins()
         }
         if(!userM) return message.reply("This user don't have an account yet, ask them to join you!")
         
