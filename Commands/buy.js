@@ -15,7 +15,7 @@ module.exports = new Command({
         const item = shop.find(s => s.id == args[1].toLowerCase())
         if(!item) return
         let amount = parseInt(args[2])
-        if(!amount) amount = 1
+        if(!amount || amount <= 0) amount = 1
         const [currency, price] = item.price
         try {
             if(user[currency] < price * amount) return message.reply(`You need ${currency.getLogo()} ${(price * amount - user[currency]).toLocaleString()} more to purchase this.`)
