@@ -9,12 +9,6 @@ mongoose.connect(process.env.mongo, {
   console.log("Connected to Database")
 });
 
-(async function() {
-  const u = await User.find({})
-  const s = u.sort((a, b) => b.networth - a.networth)
-  console.log(s)
-})
-
 // User.updateOne({ id: "529734781970284544" }, { $set: { }})
 // .then(res => {
 //   console.log(res)

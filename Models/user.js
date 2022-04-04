@@ -57,6 +57,10 @@ const schema = new Schema({
     networth: {
         type: Number,
         get: net
+    },
+    daily: {
+        type: Number,
+        default: 0
     }
 })
 
