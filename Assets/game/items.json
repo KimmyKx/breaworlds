@@ -60,5 +60,12 @@
       "name": "Wooden Fishing Rod",
       "logo": "🎣"
     }
+  ],
+  "farm": [
+    {
+      "id": "platform",
+      "name": "Wooden Platform",
+      "logo": "<:Platform:891575339057315880>"
+    }
   ]
 }

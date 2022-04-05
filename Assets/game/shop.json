@@ -50,5 +50,12 @@
         "price": ["wl", 50],
         "description": "Tired of farming? let's go for fishing! (upgradable)",
         "category": "equipment"
+    },
+    {
+        "id": "platform",
+        "count": 5,
+        "price": ["tl", 1],
+        "description": "Farm is great, expand more!",
+        "category": "farm"
     }
 ]
