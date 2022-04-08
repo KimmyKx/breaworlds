@@ -7,6 +7,7 @@ module.exports = new Command({
 	name: 'daily',
 	description: '',
 	alias: ['reward'],
+	group: 'Economy',
 	async run(message, args, client, user) {
 		if(user.daily - Date.now() > 0) return message.reply(`You can't claim this yet wait ${ms(user.daily - Date.now(), { secondsDecimalDigits: 0 })}`);
 		const gems = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
