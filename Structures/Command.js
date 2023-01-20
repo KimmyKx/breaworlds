@@ -1,8 +1,8 @@
 /** @format */
 
-const Discord = require("discord.js");
-const Client = require("./Client.js");
-const User = require("../Models/user")
+const Discord = require('discord.js');
+const Client = require('./Client.js');
+const User = require('../Models/user');
 
 /**
 *
@@ -15,17 +15,17 @@ const User = require("../Models/user")
 function RunFunction(message, args, client, user) {}
 
 class Command {
-  /**
+	/**
    * @typedef {{name: String, description: String, alias: Array, group: String, run: RunFunction}} CommandOptions
    * @param {CommandOptions} options
    */ 
-  constructor(options){
-    this.name = options.name;
-    this.description = options.description;
-    this.alias = options.alias
-    this.group = options.group
-    this.run = options.run;
-  }
+	constructor(options){
+		this.name = options.name;
+		this.description = options.description;
+		this.alias = options.alias;
+		this.group = options.group;
+		this.run = options.run;
+	}
 }
 
 module.exports = Command;
